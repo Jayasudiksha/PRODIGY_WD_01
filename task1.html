@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive & Animated Navigation Menu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 123, 255, 0.8);
+            border-bottom: 2px solid #fff;
+            border-radius: 0 0 15px 15px;
+            transition: background 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul li {
+            margin: 0 20px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.2s;
+            position: relative;
+        }
+
+        ul li a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+            transform: scale(0);
+        }
+
+        ul li a:hover::before {
+            transform: scale(1);
+        }
+
+        .content {
+            padding-top: 80px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .image-section {
+            margin: 50px 0;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .image-section img {
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-animated {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background: linear-gradient(45deg, #00d4ff, #ff1493);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.5s, transform 0.4s;
+            margin-top: 30px;
+        }
+
+        .btn-animated:hover {
+            background: linear-gradient(45deg, #ff1493, #00d4ff);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="task1.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contacts.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <h1>Welcome to our Film For you</h1>
+        <p>The only page to suggest a film for your mood</p>
+        
+        <div class="image-section">
+            <img src="image.jpg" alt="Placeholder Image 1">
+            <img src="image2.jpg" alt="Placeholder Image 2">
+            <img src="image3.jpg" alt="Placeholder Image 3">
+        </div>
+
+        <a href="#contact" class="btn-animated">Get in Touch</a>
+
+        <div style="height: 1200px;"> <!-- Just to create scrollable space -->
+            <p>Keep scrolling to see the navigation menu change...</p>
+        </div>
+    </div>
+
+<script>
+    window.onscroll = function() {
+        const navbar = document.getElementById('navbar');
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    };
+</script>
+</body>
+</html>
